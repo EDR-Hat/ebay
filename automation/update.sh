@@ -1,4 +1,3 @@
-#!/bin/bash
-
-cd ..
+#!/bin/sh
+cd ebay/
 git pull

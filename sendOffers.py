@@ -18,8 +18,8 @@ conn = psy.connect(
 
 cur = conn.cursor()
 
-#define how to format directives CSV might be best
-#load line from offer directives
+offerController = pd.read_csv('directives/offers.csv')
+
 #load api token
 #request eligible item ids
 #error check request response

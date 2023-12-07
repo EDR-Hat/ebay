@@ -112,7 +112,7 @@ for frame in frames:
     cur.execute('drop table if exists imported;')
     cur.execute('create temporary table imported (' + ', '.join([x[0] + ' ' + x[1] for x in zip(frame.columns, tmp_cols)]) + ');')
 
-    #should be able to do this without inserting into the table at all?
+    #I should be able to do this without inserting into the table at all
     frame.apply(lambda x: applyRow(x), axis=1)
     cur.execute('select * from imported;')
     toBeImported = cur.fetchall()
@@ -125,7 +125,8 @@ for frame in frames:
             impFin = [clean(x[0], x[1]) for x in zip(impNames, dataTypes[name][1:])]
             cur.execute('insert into public.' + name + ' ( ' +
                     ', '.join(kols) + ' ) values ( ' + ', '.join(impFin) + ' );')
-        #conn.commit()
+        conn.commit()
+
 
 exit(0)
 

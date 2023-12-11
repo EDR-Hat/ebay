@@ -1,6 +1,7 @@
 import requests
 import base64
 import json
+import datetime
 from urllib.parse import unquote
 
 endpoint = "https://auth.ebay.com/oauth2/authorize"
@@ -47,7 +48,19 @@ if r.status_code != 200:
     print('non okay response received')
     exit(1)
 
-f = open('tokens', 'w')
 tokens = r.json()
-f.write(json.dumps(tokens))
+usr = {}
+usr['token'] = tokens['access_token']
+usr['expiry'] = str( datetime.datetime.today() +
+        datetime.timedelta(seconds=int(tokens['expires_in'])) )
+f = open('usr.tok', 'w')
+json.dump(usr, f)
+f.close()
+
+refresh = {}
+refresh['token'] = tokens['refresh_token']
+refresh['expiry'] = str( datetime.datetime.today() +
+        datetime.timedelta(seconds=int(tokens['refresh_token_expires_in'])) )
+f = open('ref.tok', 'w')
+json.dump(refresh, f)
 f.close()

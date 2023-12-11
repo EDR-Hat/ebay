@@ -13,4 +13,4 @@ category,delay,initial,dropPercentage,dropAmount,timeInterval,maxOfferPercentage
 #it waits 2 weeks before sending out 5% offers (the minimum allowable by eBay) and then increases 
 # the percentage off by a half percentage every week.
 # by day 30 this particular directive sends out 6% off offers
-default,14,5,0.5,0,7,50
+default,14,5,0.5,0,7,0.50

@@ -1,4 +1,5 @@
 tokens
-*.csv
+listingsToImport/*.csv
 *.cred
 *.bak
+*.tok

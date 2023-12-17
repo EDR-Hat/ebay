@@ -27,7 +27,7 @@ def truncate(x):
 
 #cur = conn.cursor()
 
-offerController = pd.read_csv('directives/offers.csv')
+offerController = pd.read_csv('/home/magicmoney/ebay/directives/offers.csv')
 endpoint = 'https://api.ebay.com/sell/negotiation/v1/find_eligible_items'
 r = makeRequest('get', endpoint, {  'X-EBAY-C-MARKETPLACE-ID': 'EBAY_US'}, parameters={'limit': 200})
 

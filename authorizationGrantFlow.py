@@ -23,7 +23,7 @@ endpoint = 'https://api.ebay.com/identity/v1/oauth2/token'
 headers = {}
 identifier = 'Basic ' + base64.b64encode(bytes( creds['client_id'] + ':' + creds['client_secret'], 'utf-8')).decode('utf-8')
 
-f = open('auth.cred', 'w')
+f = open('/home/magicmoney/ebay/auth.cred', 'w')
 f.write(identifier)
 f.close()
 
@@ -53,7 +53,7 @@ usr = {}
 usr['token'] = tokens['access_token']
 usr['expiry'] = str( datetime.datetime.today() +
         datetime.timedelta(seconds=int(tokens['expires_in'])) )
-f = open('usr.tok', 'w')
+f = open('/home/magicmoney/ebay/usr.tok', 'w')
 json.dump(usr, f)
 f.close()
 

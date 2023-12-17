@@ -7,11 +7,11 @@ def refresh():
 
     headers = {}
     headers['Content-Type'] = 'application/x-www-form-urlencoded'
-    f = open('auth.cred', 'r')
+    f = open('/home/magicmoney/ebay/auth.cred', 'r')
     headers['Authorization'] = f.readline()
     f.close()
 
-    f = open('ref.tok', 'r')
+    f = open('/home/magicmoney/ebay/ref.tok', 'r')
     tokens = json.load(f)
     f.close()
     payload = {}

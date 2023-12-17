@@ -4,11 +4,11 @@ import datetime
 import tokenRefresh
 
 def getToken():
-    f = open('usr.tok', 'r')
+    f = open('/home/magicmoney/ebay/usr.tok', 'r')
     tokens = json.load(f)
     f.close()
 
-    if datetime.datetime.today() > datetime.datetime.strptime(tokens['expiry'], '%Y-%d-%m %H:%M:%S.%f'):
+    if datetime.datetime.today() > datetime.datetime.strptime(tokens['expiry'], '%Y-%m-%d %H:%M:%S.%f'):
         tokenRefresh.refresh()
         f = open('usr.tok', 'r')
         tokens = json.load(f)
